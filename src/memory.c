@@ -1,7 +1,10 @@
 //
-// Created by Maarten on 21/01/2020.
+//  memory.c
+//  clox
 //
-
+//  Created by Maarten on 24/01/2020.
+//  Copyright © 2020 Maarten Lauwers. All rights reserved.
+//
 #include <stdlib.h>
 
 #include "common.h"

@@ -1,5 +1,9 @@
 //
-// Created by Maarten on 21/01/2020.
+//  memory.h
+//  clox
+//
+//  Created by Maarten on 24/01/2020.
+//  Copyright © 2020 Maarten Lauwers. All rights reserved.
 //
 
 #ifndef CLOX_MEMORY_H

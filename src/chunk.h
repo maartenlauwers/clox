@@ -1,11 +1,16 @@
 //
-// Created by Maarten on 21/01/2020.
+//  chunk.h
+//  clox
+//
+//  Created by Maarten on 24/01/2020.
+//  Copyright © 2020 Maarten Lauwers. All rights reserved.
 //
 
 #ifndef CLOX_CHUNK_H
 #define CLOX_CHUNK_H
 
 #include "common.h"
+#include "value.h"
 
 typedef enum {
     OP_RETURN,
@@ -15,10 +20,12 @@ typedef struct {
     int count;
     int capacity;
     uint8_t* code;
+    ValueArray constants;
 } Chunk;
 
 void initChunk(Chunk* chunk);
 void freeChunk(Chunk* chunk);
 void writeChunk(Chunk *chunk, uint8_t byte);
+int addConstant(Chunk* chunk, Value value);
 
 #endif //CLOX_CHUNK_H

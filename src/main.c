@@ -1,3 +1,11 @@
+//
+//  main.c
+//  clox
+//
+//  Created by Maarten on 24/01/2020.
+//  Copyright © 2020 Maarten Lauwers. All rights reserved.
+//
+
 #include "common.h"
 #include "chunk.h"
 #include "debug.h"
