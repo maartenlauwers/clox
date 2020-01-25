@@ -64,6 +64,9 @@ int addConstant(Chunk *chunk, Value value) {
     return chunk->constants.count - 1;
 }
 
+/**
+ Returns the line number that matches the bytecode instruction at the given offset.
+ */
 int getLine(Chunk *chunk, int offset) {
     if (offset < 0) {
         return -1;
