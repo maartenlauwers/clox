@@ -21,13 +21,17 @@ typedef struct {
     int count;
     int capacity;
     uint8_t* code;
-    int* lines;
     ValueArray constants;
+    
+    int lineCount; // Number of bytes in use (2 per line).
+    int lineCapacity; // Number of bytes available.
+    int* lines;
 } Chunk;
 
 void initChunk(Chunk* chunk);
 void freeChunk(Chunk* chunk);
 void writeChunk(Chunk *chunk, uint8_t byte, int line);
 int addConstant(Chunk* chunk, Value value);
+int getLine(Chunk *chunk, int offset);
 
 #endif //CLOX_CHUNK_H
