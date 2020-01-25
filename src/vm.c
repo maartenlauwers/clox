@@ -12,12 +12,47 @@
 
 VM vm;
 
+static void resetStack() {
+    vm.stackTop = vm.stack;
+}
+
 void initVM() {
-    
+    resetStack();
 }
 
 void freeVM() {
     
+}
+
+void push(Value value) {
+    *vm.stackTop = value;
+    vm.stackTop++;
+}
+
+Value pop() {
+    vm.stackTop--;
+    return *vm.stackTop;
+}
+
+static void binaryOpAddition() {
+    double b = pop();
+    double a = pop();
+    push(a + b);
+}
+static void binaryOpSubtraction() {
+    double b = pop();
+    double a = pop();
+    push(a - b);
+}
+static void binaryOpMultiplication() {
+    double b = pop();
+    double a = pop();
+    push(a * b);
+}
+static void binaryOpDivision() {
+    double b = pop();
+    double a = pop();
+    push(a / b);
 }
 
 static InterpretResult run() {
@@ -26,7 +61,15 @@ static InterpretResult run() {
     
     for (;;) {
 #ifdef DEBUG_TRACE_EXECUTION
-        // NOTE: Because vm.ip and vm.chunk->code both point to a byte address (because the array is byte sized) in (the same area) of memory,
+        printf("        ");
+        for (Value* slot = vm.stack; slot < vm.stackTop; slot++) {
+            printf("[ ");
+            printValue(*slot);
+            printf(" ]");
+        }
+        printf("\n");
+        
+        // NOTE: Because vm.ip and vm.chunk->code both point to a byte address (because the array is byte sized) in (the same area of) memory,
         // subtracting one from the other will give the difference in bytes and thus the relative offset from
         // the beginning of the bytecode.
         disassembleInstruction(vm.chunk, (int)(vm.ip - vm.chunk->code));
@@ -36,11 +79,17 @@ static InterpretResult run() {
         switch(instruction = READ_BYTE()) {
             case OP_CONSTANT: {
                 Value constant = READ_CONSTANT();
-                printValue(constant);
-                printf("\n");
+                push(constant);
                 break;
             }
+            case OP_ADD:        binaryOpAddition(); break;
+            case OP_SUBTRACT:   binaryOpSubtraction(); break;
+            case OP_MULTIPLY:   binaryOpMultiplication(); break;
+            case OP_DIVIDE:     binaryOpDivision(); break;
+            case OP_NEGATE:     push(-pop()); break;
             case OP_RETURN:
+                printValue(pop());
+                printf("\n");
                 return INTERPRET_OK;
         }
     }
