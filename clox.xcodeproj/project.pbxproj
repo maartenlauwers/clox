@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE02FD8223E5EF4B0071C663 /* compiler.c in Sources */ = {isa = PBXBuildFile; fileRef = FE02FD8123E5EF4B0071C663 /* compiler.c */; };
+		FE02FD8523E5EF880071C663 /* scanner.c in Sources */ = {isa = PBXBuildFile; fileRef = FE02FD8423E5EF880071C663 /* scanner.c */; };
 		FEC1F67023DB78A3008269B6 /* memory.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC1F66A23DB78A3008269B6 /* memory.c */; };
 		FEC1F67123DB78A3008269B6 /* debug.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC1F66C23DB78A3008269B6 /* debug.c */; };
 		FEC1F67223DB78A3008269B6 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC1F66D23DB78A3008269B6 /* main.c */; };
@@ -28,6 +30,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FE02FD8023E5EF4B0071C663 /* compiler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = compiler.h; sourceTree = "<group>"; };
+		FE02FD8123E5EF4B0071C663 /* compiler.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = compiler.c; sourceTree = "<group>"; };
+		FE02FD8323E5EF880071C663 /* scanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = scanner.h; sourceTree = "<group>"; };
+		FE02FD8423E5EF880071C663 /* scanner.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = scanner.c; sourceTree = "<group>"; };
 		FEC1F65E23DB788A008269B6 /* clox */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = clox; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEC1F66923DB78A3008269B6 /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
 		FEC1F66A23DB78A3008269B6 /* memory.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = memory.c; sourceTree = "<group>"; };
@@ -85,6 +91,10 @@
 				FEC1F67623DB7CB8008269B6 /* value.c */,
 				FEC1F67823DC6236008269B6 /* vm.h */,
 				FEC1F67923DC6236008269B6 /* vm.c */,
+				FE02FD8023E5EF4B0071C663 /* compiler.h */,
+				FE02FD8123E5EF4B0071C663 /* compiler.c */,
+				FE02FD8323E5EF880071C663 /* scanner.h */,
+				FE02FD8423E5EF880071C663 /* scanner.c */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -150,6 +160,8 @@
 				FEC1F67323DB78A3008269B6 /* chunk.c in Sources */,
 				FEC1F67223DB78A3008269B6 /* main.c in Sources */,
 				FEC1F67123DB78A3008269B6 /* debug.c in Sources */,
+				FE02FD8523E5EF880071C663 /* scanner.c in Sources */,
+				FE02FD8223E5EF4B0071C663 /* compiler.c in Sources */,
 				FEC1F67A23DC6236008269B6 /* vm.c in Sources */,
 				FEC1F67023DB78A3008269B6 /* memory.c in Sources */,
 			);
